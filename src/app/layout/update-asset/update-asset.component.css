@@ -1,0 +1,53 @@
+
+ 
+.asset-list-div {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .asset-list-div h2 {
+    text-align: center;
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .asset-list-div table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .asset-list-div th,
+  .asset-list-div td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: left;
+  }
+  
+  .asset-list-div th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+  }
+  
+  .asset-list-div tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  .asset-list-div tr:hover {
+    background-color: #f1f1f1;
+  }
+  
+  button{
+    background-color: green;
+    cursor: pointer;
+  }
+
+  .listReverse{
+    cursor: pointer;
+    height: 30px;
+    width: auto;
+  }

@@ -1,0 +1,21 @@
+<!-- <h2> Dashboard App Page  </h2>
+<h1>  welcome </h1>
+<br>
+<app-add-asset></app-add-asset>
+
+<h2>List of Item</h2>
+<app-asset-list></app-asset-list> -->
+
+<app-header></app-header>
+<!-- <button routerLink="addAsset"> Add Asset</button>
+<button (click)="viewAsset()"> View Asset</button>
+<button (click)="updateAsset()"> Update Asset</button> -->
+<!-- <button routerLink="/"> Add Asset</button> -->
+
+<h3 *ngIf="checkHome()">Asset Management System</h3>
+
+<!-- <div class="card-container">
+    <app-assetcard ></app-assetcard>
+  </div> -->
+<!-- <button (click)="sessionCheck()"> session check</button> -->
+<router-outlet></router-outlet>

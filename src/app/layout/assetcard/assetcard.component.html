@@ -1,0 +1,14 @@
+<div class="card-container">
+<div class="card" >
+    <h2 (click)="getSpecificAsset('All')">All Asset</h2>
+    <p>{{AllAssetCount}}</p>
+  </div>
+  <div class="card">
+    <h2 (click)="getSpecificAsset('AllActive')">Active Asset</h2>
+    <p>{{ ActiveAssetCount}}</p>
+  </div>
+  <div class="card">
+    <h2   (click)="getSpecificAsset('AllInActive')" >InActive Asset</h2>
+    <p>{{InActiveAssetCount}}</p>
+  </div>
+</div>

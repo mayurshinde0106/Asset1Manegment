@@ -1,0 +1,74 @@
+
+ 
+.asset-list-div {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+   
+
+     margin-top: 60px; 
+  padding: 10px;
+  }
+  
+  .asset-list-div h2 {
+    text-align: center;
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .asset-list-div table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .asset-list-div th,
+  .asset-list-div td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: left;
+  }
+  
+  .asset-list-div th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+  }
+  
+  .asset-list-div tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  .asset-list-div tr:hover {
+    background-color: #f1f1f1;
+  }
+  
+
+  .updateButton,.deleteButtonActive{
+    cursor: pointer
+  }
+
+  .deleteButtonActive:hover{
+    background-color: red;
+  }
+  .deleteButtonInActive{
+    background-color: rgb(221, 63, 63);
+  }
+  deleteButtonInActive:hover{
+    background-color: red;
+  }
+  .addButton{
+    cursor: pointer;
+    height: 20px;
+  }
+  .updateButton:hover{
+    background-color: rgb(100, 100, 213);
+  }
+
+  img{
+    align-items: center;
+    width: 40px;
+    height: auto;
+  }

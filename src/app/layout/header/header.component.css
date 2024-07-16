@@ -1,0 +1,66 @@
+/* header.component.css */
+/* header {
+    background-color: #333;
+    color: white;
+    padding: 1rem;
+  } */
+
+  header{
+    position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #333;
+  color: white;
+  padding: 15px;
+  text-align: center;
+  z-index: 1000; /* Ensures the header is above other content */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  h1 {
+    margin: 0;
+  }
+  
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+  }
+  
+  .leftMenu  li {
+    margin-right: 1rem;
+  }
+  
+  .rightMenu {
+    margin-left: auto;
+    display: flex;
+  }
+
+  .rightMenu li {
+    margin-left: 1rem;
+  } 
+  
+  a {
+    color: white;
+    text-decoration: none;
+  }
+  
+  a.active{
+    text-decoration: underline;
+  }
+  a:hover {
+    cursor: pointer;
+    text-decoration: underline;
+  }
+  
+  .rightButton{
+    margin-right: 40px;
+  }

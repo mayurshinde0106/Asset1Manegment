@@ -1,0 +1,23 @@
+<!-- header.component.html -->
+<header>
+    <nav>
+     
+        <ul class="leftMenu">
+        <li><a routerLink="/assetCard" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a></li>
+        <li><a routerLink="/addAsset" routerLinkActive="active">Add Asset</a></li>
+        <li><a (click)="assetList('AllActive')" routerLinkActive="active">Asset</a></li>
+        </ul>
+        <!-- <li><a routerLink="/contact">Contact</a></li> -->
+
+        <ul class="rightMenu">
+        <li class="rightButton"><a routerLink="/login" >Login</a></li>
+        <li class="rightButton" (click)="logout()">Logout</li>
+        <!-- <li class="rightButton"><a routerLink="/register">Register</a></li> -->
+        </ul>
+    </nav>
+  </header>
+  
+<router-outlet></router-outlet>
+  <!-- <button routerLink="addAsset"> Add Asset</button>
+<button (click)="viewAsset()"> View Asset</button>
+<button (click)="updateAsset()"> Update Asset</button> -->

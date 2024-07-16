@@ -1,0 +1,23 @@
+<p>login works!</p>
+
+<div class="login-container">
+  <h2>Login</h2>
+  <form (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" [(ngModel)]="loginData.Mail" required>
+    </div>
+    <div class="form-group">
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" [(ngModel)]="loginData.Password" required>
+    </div>
+    <button type="submit">Login</button>
+  </form>
+  <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
+  <div *ngIf="successMessage" class="success">{{ successMessage }}</div>
+  <div class="registration-link">
+   <p>  Don't have an account? <a routerLink="/register"> Register here</a></p>
+  </div>
+</div>
+
+
