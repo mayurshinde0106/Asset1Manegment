@@ -48,7 +48,7 @@ export class LoginComponent {
             console.log('Login Successfully ! ');
            
             localStorage.setItem(this.storageKey,JSON.stringify(response.data[0]));
-            localStorage.setItem('session',JSON.stringify(true));
+            localStorage.setItem('session',JSON.stringify('true'));
             alert('Successfully login ');
             // localStorage.setItem(this.TOKEN_KEY, response.data[0].Name);
             // this.sessionservice.setSession(response.data[0]);

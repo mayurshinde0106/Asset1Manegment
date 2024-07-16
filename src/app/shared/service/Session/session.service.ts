@@ -22,6 +22,6 @@ export class SessionService {
 
   clearSession():void{
     localStorage.removeItem(this.storageKey);
-    localStorage.setItem('session',JSON.stringify(false));
+    localStorage.setItem('session',JSON.stringify('false'));
   }
 }

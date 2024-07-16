@@ -25,7 +25,9 @@ export class UpdateAssetComponent {
    constructor(private assetServive: AssetService, private route:ActivatedRoute,private snackBar:MatSnackBar,private router:Router) { }
   conditionList : string[]=["Good","Medium","Bad"]
   Statused : string[]=["Active","InActive"];
-   AssetList ='mayur 8858'
+  AssetList ='mayur 8858'
+
+  Actions:String='AllActive';
 //  private asset:any;
   private a:number=0;
   ngOnInit(){
@@ -52,13 +54,14 @@ export class UpdateAssetComponent {
     this.assetServive.updateAsset(this.asset).subscribe( response =>{
       console.log("Asset Data Update ",response);
       this.snackBar.open('Update Save Successfully!' ,'Close',{
-        duration:3500,
+        duration:550,
         verticalPosition: 'bottom',
         horizontalPosition:'right',
       })
       setTimeout(()=>{
-        this.router.navigate(['assetlist']);
-      },5000)
+       
+        this.router.navigate(['assetlist/:Action'],{queryParams:{Action:this.Actions}});
+      },600)
       
     },
     error=>{

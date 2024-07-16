@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TemplateRef, ViewChild, ViewContainerRef } from '@angular/core';
 import { AssetService } from '../../shared/service/asset.service';
 import { response } from 'express';
 import { ActivatedRoute, Route, Router, RouterLink, RouterOutlet } from '@angular/router';
@@ -17,12 +17,13 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   providers: [AssetService]
 })
 export class AssetListComponent {
-
+  @ViewChild('OpenPopup', { static: true }) openPopupTemplate!: TemplateRef<any>;
   public navigateFlag : boolean =false;
   public AssetDataList : any[] =[];
   public responseData : any[] =[]; 
+  public AssetNewId : number =0
 
-  constructor(private asssetService: AssetService, private router: Router, private snackBar:MatSnackBar,private routes :ActivatedRoute) { }
+  constructor(private asssetService: AssetService, private router: Router, private snackBar:MatSnackBar,private routes :ActivatedRoute ,private viewContainerRef: ViewContainerRef) { }
    items: any[] = [];
 
   // idx:number=1;
@@ -69,10 +70,10 @@ this.asssetService.specificAssetData(this.Action).subscribe(
     Action:''
   }
  // asset1!:Asset;
-  deleteClick(AssetId :number){
-
-    console.log('delete records '+AssetId);
-        this.asset1.AssetId=AssetId;
+  deleteClick(){
+    this.closePopup();
+    console.log('delete records '+this.AssetNewId);
+        this.asset1.AssetId=this.AssetNewId;
 
         this.asssetService.deleteAsset(this.asset1).subscribe(
           response=>{
@@ -87,6 +88,7 @@ this.asssetService.specificAssetData(this.Action).subscribe(
         })
         this.ngOnInit()
         // window.location.reload();
+       
       },
       error => {
         console.log('error occured ', error);
@@ -98,6 +100,14 @@ this.asssetService.specificAssetData(this.Action).subscribe(
         })
       }
         )
+  }
+  openPopup(data: number) {
+    this.AssetNewId =data;
+    this.viewContainerRef.createEmbeddedView(this.openPopupTemplate);
+  }
+
+  closePopup() {
+    this.viewContainerRef.clear();
   }
 
   // asset = {
