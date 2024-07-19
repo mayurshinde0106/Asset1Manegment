@@ -13,6 +13,21 @@
       <label for="password">Password:</label>
       <input type="password" id="password" name="employee.password" [(ngModel)]="employee.password" required>
     </div>
+    <div class="form-group">
+     
+      <label for="employeedepartment">Department :</label>
+      <select id="employeedep" name="employeedep" [(ngModel)]="employee.Employeedepartment"  required="">
+        
+          <option value="" disabled selected> Select Department</option>
+          <option *ngFor="let employeedep of EmployeedepartmentList" [value]="employeedep">{{employeedep}}</option>
+      
+      </select>
+
+    </div>
+    <div class="form-group">
+      <label for="EmployeeDOB">DOB</label>
+      <input type="Date" id="EmployeeDOB" name="employee.EmployeeDOB" [(ngModel)]="employee.EmployeeDOB" required>
+    </div>
     <div *ngIf="successMessage" class="success-message">{{ successMessage }}</div>
     <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
     <button type="submit">Register</button>

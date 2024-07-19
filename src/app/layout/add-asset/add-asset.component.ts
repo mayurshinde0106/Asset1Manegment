@@ -49,8 +49,9 @@ export class AddAssetComponent {
  // url='http://localhost:42001/PostAssetDetails'
 
  Statused : string[]=["Active","InActive"];
- conditionList : string[]=["Good","Medium","Bad"]
- 
+ conditionList : string[]=['New',"Good","Used","Poor",'Damaged']
+ CategoryList :string []=['IT Equipment','Office Equipment','Vehicles','Furniture']
+
  newCategory : string='';
  showCategoryInput : boolean=false;
  onCategoryChange(event:any)
@@ -72,9 +73,9 @@ export class AddAssetComponent {
 //     this.showCategoryInput=false;
 //   }
 //  }
-
 sessionData:any;
 newAssetAdd : boolean =false;
+
 onSubmit(){
  // debugger
  this.sessionData=this.sessionservice.getSession();

@@ -29,7 +29,15 @@
       <button type="button" (click)="addCategory()">Add</button> -->
 
       <label for="category"> Category:</label>
-      <input type="text" id="category" name="category" [(ngModel)]="asset.Category" required>
+      <!-- <input type="text" id="category" name="category" [(ngModel)]="asset.Category" required> -->
+
+
+      <select id="categories" name="categories" [(ngModel)]="asset.Category"  required="">
+        
+          <option value="" disabled selected> Select Category</option>
+          <option *ngFor="let categoryList of CategoryList" [value]="categoryList">{{categoryList}}</option>
+      
+      </select>
 
     </div>
     <div>
@@ -37,7 +45,7 @@
       <input type="text" id="condition" name="condition" [(ngModel)]="asset.Condition" required> -->
       
       <label for="condition">Condition:</label>
-      <select id="category" name="category" [(ngModel)]="asset.Condition"  required="">
+      <select id="conditions" name="conditions" [(ngModel)]="asset.Condition"  required="">
         
           <option value="" disabled selected> Select Condition</option>
           <option *ngFor="let condition of conditionList" [value]="condition">{{condition}}</option>

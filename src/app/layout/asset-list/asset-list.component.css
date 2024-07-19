@@ -1,86 +1,253 @@
+/* Keep existing styles */
 
- 
 .asset-list-div {
-    max-width: 1300px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #f9f9f9;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-   
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-top: 60px;
+  font-family: Arial, Helvetica, sans-serif;
+}
 
-     margin-top: 60px; 
-    padding: 10px;
-  }
-  
-  .asset-list-div h2 {
-    text-align: center;
-    color: #333;
-    font-size: 24px;
-    margin-bottom: 20px;
-  }
-  
-  .asset-list-div table {
-    width: 100%;
-    border-collapse: collapse;
-  }
-  
-  .asset-list-div th,
-  .asset-list-div td {
-    padding: 10px;
-    border: 1px solid #ddd;
-    text-align: left;
-  }
-  
-  .asset-list-div th {
-    background-color: #f2f2f2;
-    font-weight: bold;
-  }
-  
-  .asset-list-div tr:nth-child(even) {
-    background-color: #f9f9f9;
-  }
-  
-  .asset-list-div tr:hover {
-    background-color: #f1f1f1;
-  }
-  
+.asset-list-div h2 {
+  text-align: center;
+  color: #333;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
 
-  .updateButton,.deleteButtonActive{
-    cursor: pointer
-  }
+.asset-list-div table {
+  width: 100%;
+  border-collapse: collapse;
+}
 
-  .deleteButtonActive:hover{
-    background-color: red;
-  }
-  .deleteButtonInActive{
-    background-color: rgb(221, 63, 63);
-  }
-  deleteButtonInActive:hover{
-    background-color: red;
-  }
-  .addButton{
-    cursor: pointer;
-    height: 20px;
-  }
-  .updateButton:hover{
-    background-color: rgb(100, 100, 213);
-  }
+.asset-list-div th,
+.asset-list-div td {
+  padding: 10px;
+  border: 1px solid #ddd;
+  text-align: center; /* Center-align text */
+}
 
-  img{
-    align-items: center;
-    width: 40px;
-    height: auto;
-  }
+.asset-list-div th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
 
-  /* app.component.css */
+.asset-list-div tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.asset-list-div tr:hover {
+  background-color: #f1f1f1;
+}
+
+.updateButton,
+.deleteButtonActive {
+  cursor: pointer;
+}
+
+.addButton {
+  cursor: pointer;
+}
+
+img {
+  width: 40px;
+  height: auto;
+}
+
 .popup {
   position: fixed;
-  top: 50%;
+  top: 20px;
   left: 50%;
-  transform: translate(-50%, -50%);
-  padding: 20px;
+  transform: translateX(-50%);
+  padding: 40px;
   background-color: white;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   z-index: 1000;
+}
+
+.YesButton {
+  background-color: green;
+  color: white;
+  border: 1px solid green;
+  padding: 8px 16px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.closeButton {
+  background-color: #ccc;
+  color: black;
+  border: 1px solid #ccc;
+  padding: 8px 16px;
+  cursor: pointer;
+}
+
+/* Additional styles */
+.EmployeeName {
+  cursor: pointer;
+  color: blue;
+  text-decoration: underline;
+}
+
+.EmployeeName:hover {
+  color: darkblue;
+}
+
+
+
+.updateButton,
+.deleteButtonActive {
+  cursor: pointer
+}
+
+.addButton {
+  cursor: pointer;
+  height: 20px;
+}
+
+img {
+  align-items: center;
+  width: 40px;
+  height: auto;
+}
+
+/* app.component.css */
+.popup {
+  position: fixed;
+  top: 20px;
+  /* Adjust the top position as needed */
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 40px;
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+
+.YesButton {
+  background-color: green;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.YesButton:hover {
+  background-color: darkgreen;
+}
+
+/* Styles for the closeButton */
+.closeButton {
+  margin-left: 5px;
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.closeButton:hover {
+  background-color: darkred;
+}
+
+not-allowed {
+  cursor: not-allowed;
+}
+
+.testinglastClass {
+  background-color: green;
+  /* opacity: 0.5 */
+}
+
+.Assetindex {
+
+  margin-left: 31px;
+}
+
+.updateButtonDiv {
+  margin-top: 2px;
+  margin-left: 19px;
+  margin-right: 20px;
+
+}
+
+
+
+.deleteButtonActiveImg {
+
+  width: 26px;
+  height: auto;
+  padding-top: 5px;
+  padding-left: 3px;
+}
+
+
+.updateButtonImg {
+  width: 29px;
+  height: auto;
+  padding-top: 3px;
+  padding-left: 5px;
+}
+
+/* make to update */
+/* 
+.updateButton:hover {
+  background-color: rgb(100, 100, 213);
+}
+
+.deleteButtonActive:hover {
+  background-color: red;
+}
+
+.deleteButtonInActive {
+  background-color: rgb(221, 63, 63);
+}
+
+deleteButtonInActive:hover {
+  background-color: red;
+} */
+
+
+/* changes*/
+
+.updateButtonDiv:hover{
+ 
+  background-color: rgb(100, 100, 213);
+}
+
+.deleteButtonActiveDiv{
+  
+  margin-left: 2px;
+  margin-top: 4px;
+  width: 35px;
+  height: auto;
+}
+
+.deleteButtonActiveDiv:hover{
+   background-color: #d11a2a;
+}
+
+
+
+.EmployeeName {
+  cursor: pointer;
+  padding-left: 25px;
+}
+.paddingR{
+  padding-left: 10px;
+}
+th {
+  text-align: center;
+}
+.paddingD{
+  padding-left: 20px;
+}
+.paddingCost{
+  padding-left: 20px;
 }

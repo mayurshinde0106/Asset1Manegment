@@ -8,7 +8,7 @@ export const authGuard: CanActivateFn = (route:ActivatedRouteSnapshot, state:Rou
 // const router:Router=Inject(Router);
 
   //  
-  debugger
+ // debugger
   let session=  true   ///localStorage.getItem('session');
 
 

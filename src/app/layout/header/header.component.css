@@ -5,62 +5,132 @@
     padding: 1rem;
   } */
 
-  header{
-    position: fixed;
+header {
+  position: fixed;
   top: 0;
   width: 100%;
   background-color: #333;
   color: white;
-  padding: 15px;
+  padding: 19px;
   text-align: center;
-  z-index: 1000; /* Ensures the header is above other content */
+  z-index: 1000;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  
-  
-  nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  h1 {
-    margin: 0;
-  }
-  
-  ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-  }
-  
-  .leftMenu  li {
-    margin-right: 1rem;
-  }
-  
-  .rightMenu {
-    margin-left: auto;
-    display: flex;
-  }
+  cursor: pointer;
+  /* font-family: 'Times New Roman', Times, serif; */
+  font-family: Arial, Helvetica, sans-serif;
 
-  .rightMenu li {
-    margin-left: 1rem;
-  } 
+}
+
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+h1 {
+  margin: 0;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.leftMenu li {
+  margin-right: 1rem;
+}
+
+.rightMenu {
+  margin-left: auto;
+  display: flex;
   
-  a {
+}
+
+.rightMenu ul {
+  margin-left: 1rem;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+}
+
+a.active {
+  text-decoration: underline;
+  font-weight: 600;
+}
+
+a:hover {
+  cursor: pointer;
+  font-weight: 400;
+  text-decoration: underline;
+
+}
+
+.rightButton {
+  cursor: pointer;
+  margin-right: 40px;
+}
+
+button{
+  cursor: pointer;
+ 
+    background-color: #04AA6D; /* Green */
+    border: none;
     color: white;
+    padding: 10px 12px;
+    text-align: center;
     text-decoration: none;
-  }
-  
-  a.active{
-    text-decoration: underline;
-  }
-  a:hover {
-    cursor: pointer;
-    text-decoration: underline;
-  }
-  
-  .rightButton{
-    margin-right: 40px;
-  }
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 0.4rem;
+}
+button:hover {
+  background-color: #04AA6D; /* Green */
+  color: white;
+}
+
+
+
+.dropdown {
+  position: relative;
+}
+
+.dropdown ul {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: #f9f9f9;
+  list-style-type: none;
+  padding: 10px;
+  border: 1px solid #ccc;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: none;
+}
+
+.dropdown ul li {
+  margin-bottom: 5px;
+}
+
+.dropdown ul li a {
+  display: block;
+  text-decoration: none;
+  color: #333;
+  padding: 5px;
+}
+
+.dropdown ul li a:hover {
+  background-color: #ddd;
+}
+
+.dropdown.open {
+  display: block;
+}
+
+/*  profile drop down  */
+
+
+

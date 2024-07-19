@@ -3,12 +3,15 @@ import { Router } from '@angular/router';
 import { AssetService } from '../../shared/service/asset.service';
 import { response } from 'express';
 import { error } from 'console';
+import { SessionService } from '../../shared/service/Session/session.service';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 
 @Component({
   selector: 'app-assetcard',
   standalone: true,
-  imports: [],
+  imports: [FormsModule,CommonModule],
   templateUrl: './assetcard.component.html',
   styleUrl: './assetcard.component.css'
 })
@@ -18,15 +21,28 @@ export class AssetcardComponent {
   @Input() number!:string;
 
 
-  constructor (private router:Router,private assetService:AssetService)  {}
+  constructor (private router:Router,private assetService:AssetService,private sessionService:SessionService)  {}
 
   AllAssetCount:number=0;
   InActiveAssetCount:number=0;
   ActiveAssetCount:number=0;
 
+  sessionData:any 
   ngOnInit(){
 
     // count for all asset 
+    
+
+    if (typeof localStorage !== 'undefined') {
+
+      this.sessionData = localStorage.getItem('session');
+
+     // console.log(this.sessionData,'sessionData---->')
+  } else {
+      
+      console.warn('localStorage is not available.');
+  }
+
     this.assetService.AssetCount('CountAll').subscribe(
       response=>{
           this.AllAssetCount=response.data[0][""];

@@ -9,6 +9,7 @@ import { RegisterComponent } from './layout/register/register.component';
 import { AssetcardComponent } from './layout/assetcard/assetcard.component';
 import { TempComponent } from './layout/temp/temp.component';
 import { authGuard } from './shared/Guards/auth.guard';
+import { EmployeeListComponent } from './layout/employee-list/employee-list.component';
 export const routes: Routes = [
 
     // { path: "", component: AppComponent },
@@ -19,6 +20,7 @@ export const routes: Routes = [
     { path: "login", component: LoginComponent },
      {path:"register",component:RegisterComponent},
      {path:'assetCard',component:AssetcardComponent,canActivate:[authGuard]},
+    {path:'employeeList/:EmployeeId', component:EmployeeListComponent},
 
     {path:'temp',component:TempComponent}
 ];

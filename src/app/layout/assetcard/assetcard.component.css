@@ -19,8 +19,30 @@
     text-align: center;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     background-color: #fff;
+
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    
   }
 
+  .card:hover {
+    transform: translateY(-5px); /* Add a slight lift on hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .number {
+    font-size: 30px; /* Larger font size for the number */
+    /* font-weight: bold; */
+    font-weight: 500;
+    /* color: #04AA6D; Blue color for emphasis */
+    margin-bottom:  19px; /* Space between number and text */
+    margin-top: 20px;
+  }
+
+  .text{
+    font-weight: 400;
+    font-size: 19px;
+  }
   /* h2{
     color: green;
   } */

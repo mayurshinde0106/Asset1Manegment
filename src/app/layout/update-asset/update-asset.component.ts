@@ -23,7 +23,7 @@ export class UpdateAssetComponent {
 // @Input()responseData : any[] =[] ;
 // public AssetList : any[] =[];
    constructor(private assetServive: AssetService, private route:ActivatedRoute,private snackBar:MatSnackBar,private router:Router) { }
-  conditionList : string[]=["Good","Medium","Bad"]
+  conditionList : string[]= ['New',"Good","Used","Poor",'Damaged']
   Statused : string[]=["Active","InActive"];
   AssetList ='mayur 8858'
 

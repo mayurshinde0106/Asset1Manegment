@@ -1,0 +1,25 @@
+<div class="asset-list-div">
+  <h2>Asset List</h2>
+  <table>
+      <thead>
+          <tr>
+              <th>Employee ID</th>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Department</th>
+              <th>DOB</th>
+              <th>Join Date</th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr >
+              <td>{{ Items.Id }}</td>
+              <td>{{ Items.Name }}</td>
+              <td>{{ Items.Email }}</td>
+              <td>{{ Items.Employeedepartment }}</td>
+              <td>{{ Items.EmployeeDOB | slice:0:10 }}</td>
+              <td>{{ Items.EmployeeJoinD | slice:0:10 }}</td>
+          </tr>
+      </tbody>
+  </table>
+</div>

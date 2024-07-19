@@ -1,23 +1,35 @@
 <!-- header.component.html -->
 <header>
-    <nav>
-     
-        <ul class="leftMenu">
-        <li><a routerLink="/assetCard" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a></li>
-        <li><a routerLink="/addAsset" routerLinkActive="active">Add Asset</a></li>
-        <li><a (click)="assetList('AllActive')" routerLinkActive="active">Asset</a></li>
-        </ul>
-        <!-- <li><a routerLink="/contact">Contact</a></li> -->
+  <nav>
 
-        <ul class="rightMenu">
-        <li class="rightButton"><a routerLink="/login" >Login</a></li>
-        <li class="rightButton" (click)="logout()">Logout</li>
-        <!-- <li class="rightButton"><a routerLink="/register">Register</a></li> -->
-        </ul>
-    </nav>
-  </header>
-  
+    <ul class="leftMenu" *ngIf="sessionData=='true'">
+      <li><a routerLink="/assetCard" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a></li>
+      <li><a routerLink="/addAsset" (click)="addAsset()" routerLinkActive="active">Add Asset</a></li>
+      <li><a [routerLink]="['/assetlist', 'Action']" [queryParams]="{ Action: 'AllActive' }"
+          routerLinkActive="active">Asset</a></li>
+    </ul>
+
+    <ul class="leftMenu" *ngIf="sessionData=='false'">
+      <li><a routerLink="/login" (click)="alertNotification()">Home</a></li>
+      <li><a routerLink="/login" (click)="alertNotification()">Add Asset</a></li>
+      <li><a routerLink="/login" (click)="alertNotification()">Asset</a></li>
+    </ul>
+
+<!-- 
+    <li><a routerLink="/contact">Contact</a></li> -->
+
+    <ul class="rightMenu">
+
+      <li class="rightButton" *ngIf="sessionData=='false'"><a routerLink="/login"> <button>Login</button></a></li>
+
+      <li class="rightButton" *ngIf="sessionData=='true'" (click)="openLogout()">{{employee.employeeName}}</li>
+
+      <li  class="rightButton" *ngIf="logoutOption" (click)="employeeProfile()"> <button> Profile</button></li>  
+      <li  class="rightButton" *ngIf="logoutOption" (click)="logout()"> <button>Logout</button></li>  
+    
+    </ul>
+   
+  </nav>
+</header>
+
 <router-outlet></router-outlet>
-  <!-- <button routerLink="addAsset"> Add Asset</button>
-<button (click)="viewAsset()"> View Asset</button>
-<button (click)="updateAsset()"> Update Asset</button> -->
