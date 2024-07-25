@@ -1,26 +1,50 @@
 <div class="registration-container">
   <h2>Register</h2>
-  <form (ngSubmit)="register()">
-    <div class="form-group">
+  <form #employeeForm="ngForm" (ngSubmit)="register()">
+    <div  class="form-group">
+
       <label for="name">Name:</label>
-      <input type="text" id="name" name="employee.name" [(ngModel)]="employee.name" required>
+      <input type="text"  pattern="^[a-zA-Z\s]+$" id="name" name="employee.name" [(ngModel)]="employee.name" #name="ngModel" required>
+
+      <span class="text-danger" *ngIf="name.invalid && (name.dirty || name.touched)">
+        <span *ngIf="name.errors?.['required']"> Name is Required</span>
+         <span *ngIf="name.errors?.['pattern']">Only letters and spaces are allowed</span> 
+      </span>
     </div>
+
+
     <div class="form-group">
       <label for="email">Email:</label>
-      <input type="email" id="email" name="employee.email" [(ngModel)]="employee.email" required>
+      <input type="email" pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" id="email" name="employee.email" [(ngModel)]="employee.email" #email="ngModel" required>
+      
+      <span class="text-danger" *ngIf="email.invalid && ( email.touched)">
+        <span  *ngIf="email.errors?.['required']"> Mail is required </span>
+        <span *ngIf="email.errors?.['pattern']">Enter Valid Mail</span>
+      </span>
+
     </div>
     <div class="form-group">
       <label for="password">Password:</label>
-      <input type="password" id="password" name="employee.password" [(ngModel)]="employee.password" required>
+      <input type="password" id="password" name="employee.password" [(ngModel)]="employee.password" #password="ngModel" required>
+
+      <span class="text-danger" *ngIf="password.invalid && (password.touched)">
+        <span *ngIf="password.errors?.['required']"> Password is required </span>
+      </span>
     </div>
     <div class="form-group">
-     
+
+   
+
       <label for="employeedepartment">Department :</label>
-      <select id="employeedep" name="employeedep" [(ngModel)]="employee.Employeedepartment"  required="">
-        
-          <option value="" disabled selected> Select Department</option>
-          <option *ngFor="let employeedep of EmployeedepartmentList" [value]="employeedep">{{employeedep}}</option>
-      
+      <select id="employeedep" name="employeedep" [(ngModel)]="employee.Employeedepartment"  required=""  #department="ngModel">
+
+        <option value="" disabled selected > Select Department</option>
+        <option *ngFor="let employeedep of EmployeedepartmentList" [value]="employeedep">{{employeedep}}</option>
+
+        <span class="text-danger" *ngIf="department.invalid && department.touched" >
+        <span *ngIf="department.errors?.['required']" > Department is required</span>
+
+        </span>
       </select>
 
     </div>
@@ -30,6 +54,6 @@
     </div>
     <div *ngIf="successMessage" class="success-message">{{ successMessage }}</div>
     <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
-    <button type="submit">Register</button>
+    <button type="submit" [disabled]="employeeForm.invalid" class="btn">Register</button>
   </form>
 </div>

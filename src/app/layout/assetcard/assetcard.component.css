@@ -1,48 +1,42 @@
 .card-container {
-    display: flex;
-    gap: 16px;
-    padding: 16px;
-    width: 80%;
-    margin: 0 auto; 
-   
-    margin-top: 60px; 
-    padding: 50px;
-  }
+  display: flex;
+  flex-wrap: wrap;
+  gap: 36px;
+  /* padding: 16px; */
+  width: 100%;
+  margin: 0 auto;
+  margin-top: 60px;
+  padding-left: 80px;
+  padding-top: 34px;
   
-  .card {
-    cursor: pointer;
-    flex: 0 0 calc(33.33% - 46px); 
-    max-width: calc(33.33% - 16px); 
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 16px;
-    text-align: center;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    background-color: #fff;
+}
 
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+.card {
+  cursor: pointer;
+  flex: 1 1 calc(33.33% - 2px); /* Adjust flex-basis to ensure three cards per row */
+  max-width: calc(28.33% - 32px); /* Adjust max-width to match flex-basis */
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 16px;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(21, 6, 233, 0.1);
+  background-color: #fff;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
 
-    
-  }
+.card:hover {
+  transform: translateY(-5px); /* Add a slight lift on hover */
+  box-shadow: 0 4px 8px rgba(0, 37, 243, 0.89);
+}
 
-  .card:hover {
-    transform: translateY(-5px); /* Add a slight lift on hover */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  }
-  
-  .number {
-    font-size: 30px; /* Larger font size for the number */
-    /* font-weight: bold; */
-    font-weight: 500;
-    /* color: #04AA6D; Blue color for emphasis */
-    margin-bottom:  19px; /* Space between number and text */
-    margin-top: 20px;
-  }
+.number {
+  font-size: 30px;
+  font-weight: 500;
+  margin-bottom: 19px;
+  margin-top: 20px;
+}
 
-  .text{
-    font-weight: 400;
-    font-size: 19px;
-  }
-  /* h2{
-    color: green;
-  } */
+.text {
+  font-weight: 400;
+  font-size: 19px;
+}

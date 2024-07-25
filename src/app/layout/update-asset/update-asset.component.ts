@@ -45,6 +45,7 @@ export class UpdateAssetComponent {
         Action: params['Action']
       }
     })
+   this.Actions=this.asset.Action;
     console.log('update page '+this.asset.Status);
 
   } 
@@ -60,7 +61,7 @@ export class UpdateAssetComponent {
       })
       setTimeout(()=>{
        
-        this.router.navigate(['assetlist/:Action'],{queryParams:{Action:this.Actions}});
+        this.router.navigate(['assetlist/:Action'],{queryParams:{Action:this.Actions,EmployeeId:-1}});
       },600)
       
     },

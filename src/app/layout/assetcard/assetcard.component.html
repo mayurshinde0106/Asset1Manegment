@@ -1,14 +1,25 @@
-<div class="card-container"  *ngIf="sessionData=='true'">
-<div class="card" >
-    <p  class="text" (click)="getSpecificAsset('All')">All Asset</p>
+<div class="card-container" *ngIf="sessionData=='true'">
+  <div class="card">
+    <p class="text" (click)="getSpecificAsset('All')">All Asset</p>
     <p class="number">{{AllAssetCount}}</p>
   </div>
   <div class="card">
-    <p  class="text" (click)="getSpecificAsset('AllActive')">Active Asset</p>
-    <p class="number">{{ ActiveAssetCount}}</p>
+    <p class="text" (click)="getSpecificAsset('AllActive')">Active Asset</p>
+    <p class="number">{{ActiveAssetCount}}</p>
   </div>
   <div class="card">
-    <p  class="text" (click)="getSpecificAsset('AllInActive')" >InActive Asset</p>
+    <p class="text" (click)="getSpecificAsset('AllInActive')">InActive Asset</p>
     <p class="number">{{InActiveAssetCount}}</p>
   </div>
+  <div class="card">
+    <p class="text" (click)="getSpecificAsset('Delete')">Delete Asset</p>
+    <p class="number">{{DeleteCount}}</p>
+  </div>
+<!-- 
+  <div class="card">
+    <p class="text" (click)="getSpecificAsset('AllInActive')">InActive Asset</p>
+    <p class="number">{{InActiveAssetCount}}</p>
+  </div> -->
+
+  
 </div>

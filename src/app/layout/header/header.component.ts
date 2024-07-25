@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Router, RouterLink, RouterLinkActive, RouterModule, RouterOutlet } from '@angular/router';
 import { SessionService } from '../../shared/service/Session/session.service';
-import { CommonModule } from '@angular/common';
+import { CommonModule, ɵnormalizeQueryParams } from '@angular/common';
 
 
 @Component({
@@ -76,7 +76,6 @@ export class HeaderComponent {
         
         console.warn('localStorage is not available.');
     }
-    // this.router.navigate(['/assetlist/:Action']);
 }
 
 
@@ -87,7 +86,7 @@ export class HeaderComponent {
 
     // this.router.navigate(['specificAssetItem'],{queryParams: {Action:Actions}});
     if (this.sessionData=='true') {
-      this.router.navigate(['assetlist/:Action'], { queryParams: { Action: Actions } });
+      this.router.navigate(['assetlist/:Action'], { queryParams: { Action: Actions,EmployeeId:-1 } });
     }
     else {
       alert('Please Login ');
@@ -125,9 +124,12 @@ export class HeaderComponent {
   logout() {
     this.sessionservice.clearSession();
 
+    
+    
+    this.router.navigate(['login'])
     alert('logout');
     window.location.reload();
-    this.router.navigate(['assetCard'])
+   
   }
 
   
@@ -169,8 +171,34 @@ export class HeaderComponent {
     this.isLoggedIn = true; // Simulate successful login
     this.showProfileDropdown = false; // Hide dropdown after login
   }
+  dropdownOpen = false;
 
+  
+  
   employeeProfile(){
+    this.dropdownOpen=false;
     this.router.navigate(['employeeList/:EmployeeId'], { queryParams: { EmployeeId: this.EmplyId } });
   }
-}
+
+  toggleDropdown()
+  {
+    this.dropdownOpen=!this.dropdownOpen;
+  }
+
+  loginClick()
+  {
+    // routerLink="/"
+
+    this.dropdownOpen=false;
+    this.router.navigate(['login']);
+  }
+
+  UserAsset(){
+
+    let  Actions='All';
+    this.dropdownOpen=false;
+    // this.router.navigate(['assetlist/:Action'], { queryParams: { Action: Actions } });
+    this.router.navigate(['assetlist/:Action'], {queryParams: {Action:Actions,EmployeeId: this.employee.Id}})
+    
+  }
+}   

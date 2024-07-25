@@ -83,7 +83,7 @@ onSubmit(){
     
    
     console.log(this.sessionData); 
-    this.asset.EmployeeId =this.sessionData.Id;
+    this.asset.EmployeeId = this.sessionData.Id;
     this.assetService.addAsset(this.asset).subscribe(
       response=>{
               console.log("Added Successfully",response.data);  

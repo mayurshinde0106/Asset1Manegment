@@ -7,6 +7,7 @@ import { UpdateAssetComponent } from '../update-asset/update-asset.component';
 import { Asset } from '../../shared/Model/asset.model';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { SessionService } from '../../shared/service/Session/session.service';
+import { Console } from 'node:console';
 // import {session} from '../../util';
 
 @Component({
@@ -27,13 +28,22 @@ export class AssetListComponent {
   constructor(private asssetService: AssetService, private router: Router, private snackBar: MatSnackBar, private routes: ActivatedRoute, private viewContainerRef: ViewContainerRef, private sessionService: SessionService) { }
   items: any[] = [];
 
+  UpdateDeleteOption:boolean=false;
   Action: string = '';
+  loginUser : string ='';
+  sessionData:any;
+  EmployeeId:number = -1;
+  idx:number=0;
   ngOnInit() {
 
-     debugger
+    this.idx=0;
+    // debugger
     console.log();
     this.routes.queryParams.subscribe(params => {
       this.Action = params['Action'];
+      this.EmployeeId= params['EmployeeId'];
+      
+      console.log(this.EmployeeId);
     });
 
     console.log(' Actioned asset list', this.Action);
@@ -47,6 +57,23 @@ export class AssetListComponent {
         console.log(" specificAsset data getting error", error)
       }
     )
+
+   
+
+    if (typeof localStorage !== 'undefined') {
+
+      this.sessionData =this.sessionService.getSession();
+      this.loginUser=this.sessionData.Name;
+      
+      console.log('update button localstroge : '+this.sessionData.Name);
+
+      
+  } else {
+      
+    console.log('local stroge error')
+  }
+
+  
   }
   asset1 = {
     AssetId: 0,
@@ -107,12 +134,21 @@ export class AssetListComponent {
   onAddAsset() {
     this.router.navigate(["addAsset"])
   }
-  sessionData: any;
+
+  
   EmployeeDetails(EId: number) {
     this.router.navigate(['employeeList/:EmployeeId'], { queryParams: { EmployeeId: EId } });
     console.log();
   }
   employeeAuth: boolean = true;
+
+  
+  incrementIndex()
+  {
+    this.idx=this.idx+1;
+    return this.idx;
+  }
+
 }
 
 

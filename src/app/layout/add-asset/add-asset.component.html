@@ -1,124 +1,91 @@
-<!-- <p style="text-align: center;">add-asset </p> -->
-
-<div class="submitForm">
-  <h2>Add Asset</h2>
-  <form #assetForm="ngForm" (ngSubmit)="onSubmit()">
-    <div>
-      <label for="name">AssetName:</label>
-      <input type="text" id="name" name="name" [(ngModel)]="asset.Name" required>
-    </div>
-    <div>
-      <!-- <div>
+<div class="container">
+  <div class="left">
+    <img src="add_asset.png" alt="Example Image">
+  </div>
+  <div class="right submitForm">
+    <!-- <h2>Add Asset</h2> -->
+    <form #assetForm="ngForm" (ngSubmit)="onSubmit()">
+      <div>
+        <label for="name">AssetName:</label>
+        <input type="text" id="name" name="name" [(ngModel)]="asset.Name" required>
+      </div>
+      <div>
         <label for="category">Category:</label>
-        <select id="category" name="category" [(ngModel)]="asset.Category" (change)="onCategoryChange($event)" required>
+        <select id="categories" name="categories" [(ngModel)]="asset.Category" required>
           <option value="" disabled selected>Select Category</option>
-          <option *ngFor="let category of categories" [value]="category">{{ category }}</option>
-          <option value="other">Other...</option>
-        </select>
-        <input *ngIf="showCategoryInput" type="text" [(ngModel)]="newCategory" name="newCategory" (blur)="addCategory()" placeholder="Enter new category">
-      </div> -->
-      <!-- <label for="category">Category:</label>
-      <select id="category" name="category" [(ngModel)]="asset.Category" (change)="onCategoryChange($event)" required="">
-        <option value="" disabled selected> Select Category</option>
-        <option *ngFor="let category of conditionList" [value]="category">{{category}}</option>
-        <option value="other">Other...</option>
-      </select> -->
-      <!-- <input  *ngIf="showCategoryInput" type="text" [(ngModel)]="newCategory"  placeholder="Enter new Category"> -->
-      <!-- <button *ngIf="showCategoryInput" (click)="addCategory()">Add Category</button> -->
-      <!-- <input type="text" [(ngModel)]="newCategory" placeholder="Add new category">
-      <button type="button" (click)="addCategory()">Add</button> -->
-
-      <label for="category"> Category:</label>
-      <!-- <input type="text" id="category" name="category" [(ngModel)]="asset.Category" required> -->
-
-
-      <select id="categories" name="categories" [(ngModel)]="asset.Category"  required="">
-        
-          <option value="" disabled selected> Select Category</option>
           <option *ngFor="let categoryList of CategoryList" [value]="categoryList">{{categoryList}}</option>
-      
-      </select>
-
-    </div>
-    <div>
-      <!-- <label for="condition">Condition:</label>
-      <input type="text" id="condition" name="condition" [(ngModel)]="asset.Condition" required> -->
-      
-      <label for="condition">Condition:</label>
-      <select id="conditions" name="conditions" [(ngModel)]="asset.Condition"  required="">
-        
-          <option value="" disabled selected> Select Condition</option>
+        </select>
+      </div>
+      <div>
+        <label for="condition">Condition:</label>
+        <select id="conditions" name="conditions" [(ngModel)]="asset.Condition" required>
+          <option value="" disabled selected>Select Condition</option>
           <option *ngFor="let condition of conditionList" [value]="condition">{{condition}}</option>
-      
-      </select>
+        </select>
+      </div>
+      <div>
+        <label for="cost">Cost:</label>
+        <input type="number" pattern="^[1-9]\d*$" id="cost" name="cost" [(ngModel)]="asset.Cost" #cost="ngModel" required>
+        <span class="text-danger" *ngIf="cost.invalid && (cost.dirty || cost.touched)">
+          <span *ngIf="cost.errors?.['required']">Cost is required.</span>
+          <span *ngIf="asset.Cost < 0">Enter a valid cost (non-negative).</span>
+        </span>
+      </div>
+      <div>
+        <label for="location">Location:</label>
+        <input type="text" id="location" name="location" [(ngModel)]="asset.Location" required>
+      </div>
+      <div>
+        <label for="status">Status:</label>
+        <select id="statused" name="statused" [(ngModel)]="asset.Status" required>
+          <option value="" disabled selected>Select Status</option>
+          <option *ngFor="let status of Statused" [value]="status">{{status}}</option>
+        </select>
+      </div>
+      <button type="submit" [disabled]="assetForm.invalid" class="btn">Add</button>
+    </form>
 
-    </div>
-    <div>
-      <label for="cost">Cost:</label>
-      <input type="number" pattern="^[1-9]\d*$" id="cost" name="cost" [(ngModel)]="asset.Cost"  #cost="ngModel" required >
-
-      <!-- <span class="text-danger" *ngIf="asset.Cost<0"> Enter Valid Cost</span> -->
-      <span class="text-danger" *ngIf="cost.invalid && (cost.dirty || cost.touched)">
-        <span *ngIf="cost.errors?.['required']">Cost is required.</span>
-        <span *ngIf="asset.Cost < 0">Enter a valid cost (non-negative).</span>
-      </span>
-    </div>
-    <div>
-      <label for="location"> Location:</label>
-      <input type="text" id="location" name="location" [(ngModel)]="asset.Location" required="">
-    </div>
-    <div>
-      <label for="status"> Status: </label>
-      <!-- <input type="text" id="status" name="status" [(ngModel)]="asset.Status" required> -->
-      <select id="statused" name="statused"  [(ngModel)]="asset.Status" required="">
-        <option value="" disabled selected>Select Status</option>
-        <option *ngFor="let status of Statused" [value]="status">{{status}}</option>
-      </select>
-    </div>
-    <button type="submit"   [disabled]="assetForm.invalid" class="btn">Add</button>
-  </form>
-  <!-- <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
-    <div *ngIf="successMessage" class="error">{{ successMessage  }}</div> -->
-</div>
-
-
-
-
-<div class="asset-list-div" *ngIf="newAssetAdd">
+    <div class="asset-list-div" *ngIf="newAssetAdd">
   
-  <table>
-    <thead>
-      <tr> 
-        <!-- <th></th>
-        <th>Asset ID</th> -->
-        <th>Asset Name</th>
-        <th>Category</th>
-        <th>Condition</th>
-        <th>Cost</th>
-        <th>Location</th>
-        <th>Status</th>
-        <!-- <th>Update</th> -->
-      </tr>
-    </thead>
-    <tbody>
-      
-      <td>
-        {{newAsset.Name}}
-     </td>
-     <td>
-          {{newAsset.Category}}
-     </td>
-     <td>
-      {{newAsset.Condition}}
-     </td>
-     <td>
-         {{newAsset.Cost}}
-     </td>
-     <td>
-      {{newAsset.Location}}
-     </td>
-     <td>
-       {{newAsset.Status}}
-     </td>    
-  </table>
+      <table>
+        <thead>
+          <tr> 
+           
+            <th>Asset Name</th>
+            <th>Category</th>
+            <th>Condition</th>
+            <th>Cost</th>
+            <th>Location</th>
+            <th>Status</th>
+           
+          </tr>
+        </thead>
+        <tbody>
+          
+          <td>
+            {{newAsset.Name}}
+         </td>
+         <td>
+              {{newAsset.Category}}
+         </td>
+         <td>
+          {{newAsset.Condition}}
+         </td>
+         <td>
+             {{newAsset.Cost}}
+         </td>
+         <td>
+          {{newAsset.Location}}
+         </td>
+         <td>
+           {{newAsset.Status}}
+         </td>    
+      </table>
+    </div>
+
+    
+  </div>
 </div>
+
+
+

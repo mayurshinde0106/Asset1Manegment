@@ -29,15 +29,16 @@ export class LoginComponent {
   private readonly TOKEN_KEY = 'authToken';
 
   onSubmit(): void {
-    this.errorMessage = ''; 
     this.employeeService.Getemployee(this.loginData)
       .subscribe(
         response => {
           if (response.exception == "Password does not match") {
+            this.errorMessage='Invalid Password'
             console.log('Login failed password is wrong');
           }
 
           else if (response.exception == "No Data Found") {
+            this.errorMessage='Invalid Mail'
             console.log('Login failed mail is wrong');
 
           }
@@ -47,13 +48,17 @@ export class LoginComponent {
             localStorage.setItem('Usersession', JSON.stringify(response.data[0]));
             localStorage.setItem('session', JSON.stringify(true));
             
+            this.successMessage = '  Successfully login';
             alert('Successfully login ');
+            
+
             this.router.navigate(["/assetCard"]);
           }
           console.log(' ', response);
           },
         error => {
           console.error('Login failed:', error);
+          this.errorMessage='Login Failed'
           this.errorMessage = 'Invalid credentials. Please try again.'; // Display error message
         }
       );

@@ -1,140 +1,263 @@
-/* Center the form on the page */
-form {
-    width: 300px;
-    margin:  auto;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    background-color: #f9f9f9;
-  }
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px;
   
-  /* Style the form header */
-  h2 {
-    text-align: center;
-    margin-bottom: 20px;
-  }
-  
-  /* Style the form labels */
-  label {
-    display: block;
-    margin-bottom: 5px;
-  }
-  
-  /* Style the form inputs */
-  input[type="text"],
-  input[type="number"],select,option {
-    width: calc(100% - 20px);
-    padding: 8px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-sizing: border-box;
-  }
-  
-  /* Style the form button */
-  /* button[type="submit"] {
-    width: 100%;
-    padding: 10px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  } */
-  
-  select {
-    font-weight: bold;
-  }
-
-/*   button[type="submit"]:hover {
-    background-color: #45a049;
-  } */
-  
-
-
-  /* // added for component */
-
- 
-
-  /* Default button style */
-
-  .btn {
-    background-color: #4CAF50; /* Green */
-    color: white;
-    width: 100%;
-    padding: 10px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  /* Disabled button style */
-  .btn:disabled {
-    background-color: #cccccc; /* Gray */
-    color: #666666; /* Darker gray */
-    cursor: not-allowed;
-    opacity: 0.6;
-  }
-  
-  
-
-
- 
-.asset-list-div {
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 20px;
-  background-color: #f9f9f9;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.asset-list-div h2 {
+.left {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.left img {
+  max-width: 60%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.right {
+  flex: 1;
+  padding: 80px;
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+}
+
+/* Center the form on the page */
+form {
+  width: 300px;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+}
+
+/* Style the form header */
+h2 {
   text-align: center;
-  color: #333;
-  font-size: 24px;
   margin-bottom: 20px;
 }
 
-.asset-list-div table {
+/* Style the form labels */
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+/* Style the form inputs */
+input[type="text"],
+input[type="number"], select, option {
+  width: calc(100% - 20px);
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+/* Style the form button */
+.btn {
+  background-color: #4CAF50; /* Green */
+  color: white;
   width: 100%;
-  border-collapse: collapse;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Disabled button style */
+.btn:disabled {
+  background-color: #cccccc; /* Gray */
+  color: #666666; /* Darker gray */
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.text-danger {
+  color: red;
+  font-size: 14px;
+}
+
+/* Center the form on the page */
+form {
+  width: 300px;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+}
+
+/* Style the form header */
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Style the form labels */
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+/* Style the form inputs */
+input[type="text"],
+input[type="number"], select, option {
+  width: calc(100% - 20px);
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+/* Style the form button */
+.btn {
+  background-color: #4CAF50; /* Green */
+  color: white;
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+
+
+/* Center the form on the page */
+form {
+  width: 300px;
+  margin:  auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+}
+
+/* Style the form header */
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Style the form labels */
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+/* Style the form inputs */
+input[type="text"],
+input[type="number"],select,option {
+  width: calc(100% - 20px);
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+/* Style the form button */
+/* button[type="submit"] {
+  width: 100%;
+  padding: 10px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+} */
+
+select {
+  font-weight: bold;
+}
+
+/*   button[type="submit"]:hover {
+  background-color: #45a049;
+} */
+
+
+
+/* // added for component */
+
+
+
+/* Default button style */
+
+.btn {
+  background-color: #4CAF50; /* Green */
+  color: white;
+  width: 100%;
+  padding: 10px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Disabled button style */
+.btn:disabled {
+  background-color: #cccccc; /* Gray */
+  color: #666666; /* Darker gray */
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+
+
+
+
+.asset-list-div {
+max-width: 1000px;
+margin: 0 auto;
+padding: 20px;
+background-color: #f9f9f9;
+border-radius: 8px;
+box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.asset-list-div h2 {
+text-align: center;
+color: #333;
+font-size: 24px;
+margin-bottom: 20px;
+}
+
+.asset-list-div table {
+width: 100%;
+border-collapse: collapse;
 }
 
 .asset-list-div th,
 .asset-list-div td {
-  padding: 10px;
-  border: 1px solid #ddd;
-  text-align: left;
+padding: 10px;
+border: 1px solid #ddd;
+text-align: left;
 }
 
 .asset-list-div th {
-  background-color: #f2f2f2;
-  font-weight: bold;
+background-color: #f2f2f2;
+font-weight: bold;
 }
 
 .asset-list-div tr:nth-child(even) {
-  background-color: #f9f9f9;
+background-color: #f9f9f9;
 }
 
 .asset-list-div tr:hover {
-  background-color: #f1f1f1;
+background-color: #f1f1f1;
 }
 
 /* button{
-  background-color: green;
-  cursor: pointer;
+background-color: green;
+cursor: pointer;
 } */
 
-.listReverse{
-  cursor: pointer;
-  height: 30px;
-  width: auto;
-}
-
-.text-danger{
-color: red;
-font-size: 14px;
-}

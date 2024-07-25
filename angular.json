@@ -12,7 +12,9 @@
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:application",
+
           "options": {
+           
             "outputPath": "dist/asset-management",
             "index": "src/index.html",
             "browser": "src/main.ts",
@@ -20,10 +22,12 @@
               "zone.js"
             ],
             "tsConfig": "tsconfig.app.json",
-            "assets": [
+          
+                "assets": [
               {
                 "glob": "**/*",
                 "input": "public"
+               
               }
             ],
             "styles": [
