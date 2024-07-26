@@ -60,8 +60,10 @@ export class UpdateAssetComponent {
         horizontalPosition:'right',
       })
       setTimeout(()=>{
-       
-        this.router.navigate(['assetlist/:Action'],{queryParams:{Action:this.Actions,EmployeeId:-1}});
+        
+        let act='AllActive';
+        // console.log('  action update : '+this.Actions);
+        this.router.navigate(['assetlist/:Action'],{queryParams:{Action:act,EmployeeId:-1}});
       },600)
       
     },
@@ -71,16 +73,6 @@ export class UpdateAssetComponent {
   )
   }
 
-  // onDelete(assetId:number){
-  //  //   debugger
-  //   console.log(assetId);
-  //   this.asset1.AssetId=assetId;
-  //   this.assetServive.deleteAsset(this.asset1).subscribe( response => {
-  //     console.log("Asset data Deleted  ", response);
-  // //    this.items = response.data[0];
-  //   },
-  //   error => {
-  //     console.log('error occured ', error);
-  //   })
-  // };
+
+
 }
