@@ -31,6 +31,22 @@ export class AssetService {
     )
   }
 
+    // Delete Asset status change
+    deleteAssetStatus(asset: any): Observable<any> {
+      // debugger
+       return this.http.put<any>(this.url + 'api/DeleteStatusAssetDetail', asset).pipe(
+         catchError(this.handleError)
+       )
+     }
+
+  // Asset Reconvery 
+
+  recoveryAsset(asset: any): Observable<any> {
+    return this.http.put<any>(this.url+'api/RecoveryAsset',asset).pipe(
+      catchError(this.handleError)
+    )
+  }
+
   // update Asset
   updateAsset(asset: any): Observable<any> {
    // debugger

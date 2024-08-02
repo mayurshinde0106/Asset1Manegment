@@ -21,9 +21,10 @@ export class HeaderComponent {
 
   rightFieldName:string='login';
 
+  EmployeeRole:string='';
   EmplyId:number=1;
   ngOnInit(){
-     debugger
+   //  debugger
 
   this.viewAsset();
     
@@ -31,6 +32,7 @@ export class HeaderComponent {
     if(this.sessionData=='true')
     {
           this.rightFieldName=this.employee.employeeName;
+          this.EmployeeRole=this.employee.EmployeeRole;
           this.EmplyId=this.employee.Id;
     }
     if(this.sessionData=='false')
@@ -56,7 +58,8 @@ export class HeaderComponent {
  // UserName:string='';
  employee = {
   employeeName:'',
-  Id:1
+  Id:1,
+  EmployeeRole:''
 }
   viewAsset() {
     console.log("hello");
@@ -69,6 +72,7 @@ export class HeaderComponent {
         this.userDetails= this.sessionservice.getSession();
         this.employee.employeeName=this.userDetails.Name;
         this.employee.Id=this.userDetails.Id;
+        this.employee.EmployeeRole=this.userDetails.EmployeeRole;
 
         console.log(this.sessionData,'sessionData---->')
         console.log( this.employee.employeeName,'employee Name')

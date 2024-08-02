@@ -11,7 +11,11 @@
     <p class="text" (click)="getSpecificAsset('AllInActive')">InActive Asset</p>
     <p class="number">{{InActiveAssetCount}}</p>
   </div>
-  <div class="card">
+  <div class="card"  *ngIf="userRole=='Admin'">
+    <p class="text" (click)="getSpecificAsset('DeleteRequest')">Delete Request</p>
+    <p class="number">{{DeleteRequest}}</p>
+  </div>
+  <div class="card" >
     <p class="text" (click)="getSpecificAsset('Delete')">Delete Asset</p>
     <p class="number">{{DeleteCount}}</p>
   </div>

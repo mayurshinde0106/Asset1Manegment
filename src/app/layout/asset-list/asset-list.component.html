@@ -13,8 +13,12 @@
         <th>Purchase Date</th>
         <th>Status</th>
         <th>Employee Name</th>
-        <th *ngIf="Action!='Delete' " >Update </th>
-        <th  *ngIf="Action!='Delete' "  >Delete</th>
+        <th *ngIf="Action!='Delete' && Action!='DeleteRequest' ">Update </th>
+        <th *ngIf="Action!='Delete' && Action!='DeleteRequest' ">Delete</th>
+        <th *ngIf="Action=='Delete' && EmployeeRole=='Admin'">Recovery</th>
+
+        <th *ngIf="Action=='DeleteRequest'">Reject</th>
+        <th *ngIf="Action=='DeleteRequest'">Approve</th>
       </tr>
     </thead>
 
@@ -22,44 +26,58 @@
       <tr *ngFor="let item of items; let idx1=index">
 
         <ng-container *ngIf="(EmployeeId == -1) || (EmployeeId != -1 && EmployeeId == item.Id)">
-        <td>
-          <p class="Assetindex">{{incrementIndex()}}</p>
-        </td>
-        <td>{{ item.Name }}</td>
+          <td>
+            <p class="Assetindex">{{incrementIndex()}}</p>
+          </td>
+          <td>{{ item.Name }}</td>
 
-        <td>{{ item.Category }}</td>
-        <td> <span class="paddingR" >{{ item.Condition }}</span></td>
-        <td > <span class="paddingCost">{{ item.Cost }}</span></td>
-        <td> <span class="paddingR">{{item.Location }}</span></td>
-        <td><span  class="paddingD">{{ item.PurchaseDate | date: 'yyyy-MM-dd'}} </span></td>
-        <td ><span class="paddingR">{{ item.Status}}</span></td>
-        <td (click)="EmployeeDetails(item.Id)" ><span class="EmployeeName">{{ item.Name1}}</span></td>
-        
+          <td>{{ item.Category }}</td>
+          <td> <span class="paddingR">{{ item.Condition }}</span></td>
+          <td> <span class="paddingCost">{{ item.Cost }}</span></td>
+          <td> <span class="paddingR">{{item.Location }}</span></td>
+          <td><span class="paddingD">{{ item.PurchaseDate | date: 'yyyy-MM-dd'}} </span></td>
+          <td><span class="paddingR">{{ item.Status}}</span></td>
+          <td (click)="EmployeeDetails(item.Id)"><span class="EmployeeName">{{ item.Name1}}</span></td>
 
-        
-        
 
-        <td  *ngIf="Action!='Delete' "  class="updateButton">
-          <div *ngIf="loginUser==item.Name1" (click)="assetClick(item)" class="updateButtonDivUser">
-            <img class="updateButtonImg" src="https://img.icons8.com/?size=80&id=CrqU1Ypa53VY&format=png">
-          </div>
-          <div *ngIf="loginUser!=item.Name1" class="updateButtonDiv">
-            <img class="updateButtonImg" src="https://img.icons8.com/?size=80&id=CrqU1Ypa53VY&format=png">
-          </div>
-       </td>
 
-       <td  *ngIf="Action!='Delete' "  class="deleteButtonActive">
-        <div *ngIf="loginUser==item.Name1" (click)="openPopup(item.AssetId)" class="deleteButtonActiveDivUser">
-          <img class="deleteButtonActiveImg"
-            src="https://img.icons8.com/?size=50&id=1942&format=png">
-          </div>
+          <td *ngIf="Action!='Delete' && Action!='DeleteRequest' " class="updateButton">
+            <div *ngIf=" (loginUser==item.Name1) || ( EmployeeRole=='Admin') " (click)="assetClick(item)"
+              class="updateButtonDivUser">
+              <img class="updateButtonImg" src="https://img.icons8.com/?size=80&id=CrqU1Ypa53VY&format=png">
+            </div>
+            <div *ngIf="(loginUser!=item.Name1) && ( EmployeeRole!='Admin')" class="updateButtonDiv">
+              <img class="updateButtonImg" src="https://img.icons8.com/?size=80&id=CrqU1Ypa53VY&format=png">
+            </div>
+          </td>
 
-          <div  *ngIf="loginUser!=item.Name1"  class="deleteButtonActiveDiv">
-            <img class="deleteButtonActiveImg"
-            src="https://img.icons8.com/?size=50&id=1942&format=png">
-          </div>
-      </td>
-    </ng-container>
+          <td *ngIf="Action!='Delete' && Action!='DeleteRequest'  " class="deleteButtonActive">
+            <div *ngIf="(loginUser==item.Name1) || ( EmployeeRole=='Admin')" (click)="openPopup(item.AssetId,'Delete','Delete')"
+              class="deleteButtonActiveDivUser">
+              <img class="deleteButtonActiveImg" src="https://img.icons8.com/?size=50&id=1942&format=png">
+            </div>
+
+            <div *ngIf="(loginUser!=item.Name1) && ( EmployeeRole!='Admin')" class="deleteButtonActiveDiv">
+              <img class="deleteButtonActiveImg" src="https://img.icons8.com/?size=50&id=1942&format=png">
+            </div>
+          </td>
+
+          <td *ngIf="Action=='Delete' && (EmployeeRole=='Admin' )">
+
+            <div> <img class="RecoveryButton" (click)="recoveryAsset(item.AssetId)" src="Recovery.png"> </div>
+          </td>
+
+
+          <td *ngIf="Action=='DeleteRequest'">
+                <button class="DeleteRequestRejectButton" (click)="openPopup(item.AssetId,'Reject','Reject')">Reject</button>
+
+                <!-- <button>heelo</button> -->
+          </td>
+          <td *ngIf="Action=='DeleteRequest'">
+            <button class="DeleteRequestApproveButton" (click)="openPopup(item.AssetId,'Approve','Approve')">Approved</button>
+              
+          </td>
+        </ng-container>
 
       </tr>
       <tr>
@@ -77,8 +95,8 @@
 <ng-template #OpenPopup>
   <div class="popup">
     <!-- <h2>Popup Content</h2> -->
-    <p>Are you want to delete Asset ? </p>
-    <button class="YesButton" (click)="deleteClick()">Yes</button>
+    <p>Are you want to {{popUpOperation}} Asset ? </p>
+    <button class="YesButton" (click)="deleteStatusClick()">Yes</button>
     <button class="closeButton" (click)="closePopup()">Close</button>
   </div>
 </ng-template>

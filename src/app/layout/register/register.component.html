@@ -1,31 +1,34 @@
 <div class="registration-container">
   <h2>Register</h2>
   <form #employeeForm="ngForm" (ngSubmit)="register()">
-    <div  class="form-group">
+    <div class="form-group">
 
       <label for="name">Name:</label>
-      <input type="text"  pattern="^[a-zA-Z\s]+$" id="name" name="employee.name" [(ngModel)]="employee.name" #name="ngModel" required>
+      <input type="text" pattern="^[a-zA-Z\s]+$" id="name" name="employee.name" [(ngModel)]="employee.name"
+        #name="ngModel" required>
 
       <span class="text-danger" *ngIf="name.invalid && (name.dirty || name.touched)">
         <span *ngIf="name.errors?.['required']"> Name is Required</span>
-         <span *ngIf="name.errors?.['pattern']">Only letters and spaces are allowed</span> 
+        <span *ngIf="name.errors?.['pattern']">Only letters and spaces are allowed</span>
       </span>
     </div>
 
 
     <div class="form-group">
       <label for="email">Email:</label>
-      <input type="email" pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" id="email" name="employee.email" [(ngModel)]="employee.email" #email="ngModel" required>
-      
+      <input type="email" pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" id="email" name="employee.email"
+        [(ngModel)]="employee.email" #email="ngModel" required>
+
       <span class="text-danger" *ngIf="email.invalid && ( email.touched)">
-        <span  *ngIf="email.errors?.['required']"> Mail is required </span>
+        <span *ngIf="email.errors?.['required']"> Mail is required </span>
         <span *ngIf="email.errors?.['pattern']">Enter Valid Mail</span>
       </span>
 
     </div>
     <div class="form-group">
       <label for="password">Password:</label>
-      <input type="password" id="password" name="employee.password" [(ngModel)]="employee.password" #password="ngModel" required>
+      <input type="password" id="password" name="employee.password" [(ngModel)]="employee.password" #password="ngModel"
+        required>
 
       <span class="text-danger" *ngIf="password.invalid && (password.touched)">
         <span *ngIf="password.errors?.['required']"> Password is required </span>
@@ -33,20 +36,35 @@
     </div>
     <div class="form-group">
 
-   
+
 
       <label for="employeedepartment">Department :</label>
-      <select id="employeedep" name="employeedep" [(ngModel)]="employee.Employeedepartment"  required=""  #department="ngModel">
+      <select id="employeedep" name="employeedep" [(ngModel)]="employee.Employeedepartment" required=""
+        #department="ngModel">
 
-        <option value="" disabled selected > Select Department</option>
+        <option value="" disabled selected> Select Department</option>
         <option *ngFor="let employeedep of EmployeedepartmentList" [value]="employeedep">{{employeedep}}</option>
 
-        <span class="text-danger" *ngIf="department.invalid && department.touched" >
-        <span *ngIf="department.errors?.['required']" > Department is required</span>
+        <span class="text-danger" *ngIf="department.invalid && department.touched">
+          <span *ngIf="department.errors?.['required']"> Department is required</span>
 
         </span>
       </select>
+    </div>
 
+    <div class="form-group">
+
+      <label for="employeerole"> Employee Role : </label>
+      <select id="employeeR" name="employeeR" [(ngModel)]="employee.EmployeeRole" required="" #EmployeeRole="ngModel">
+
+        <option value="" disabled selected>Select Role</option>
+        <option *ngFor="let employeeR of EmployeeRoleList" [value]="employeeR">{{employeeR}}</option>
+
+        <span class="text-danger" *ngIf="EmployeeRole.invalid" && EmployeeRole.touched>
+          <span *ngIf="EmployeeRole.errors?.['required']"> Role is Required </span>
+        </span>
+
+      </select>
     </div>
     <div class="form-group">
       <label for="EmployeeDOB">DOB</label>

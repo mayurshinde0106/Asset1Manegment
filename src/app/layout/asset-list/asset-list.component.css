@@ -282,3 +282,65 @@ th {
   cursor: no-drop;
 }
 
+ .RecoveryButton  {
+ background-color: pink;
+ height: 30px;
+ width: auto;
+ cursor: pointer;
+}
+.RecoveryButton:hover{
+
+  height: 37px;
+  width: auto;;
+}
+
+.DeleteRequestRejectButton{
+
+  background-color: #f78675;
+  border-radius: 12px;
+  color: #000;
+  cursor: pointer;
+  font-weight: bold;
+  padding: 10px 15px;
+  text-align: center;
+  transition: 200ms;
+  width: 100%;
+  box-sizing: border-box;
+  border: 0;
+  font-size: 13px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+
+}
+
+.DeleteRequestRejectButton:hover{
+  outline: 0;
+  background: #f04c4c;
+  box-shadow: 0 0 0 2px rgba(0,0,0,.2), 0 3px 8px 0 rgba(0,0,0,.15);
+}
+
+.DeleteRequestApproveButton{
+
+  background-color: #6fe57b;
+  border-radius: 12px;
+  color: #000;
+  cursor: pointer;
+  font-weight: bold;
+  padding: 10px 15px;
+  text-align: center;
+  transition: 200ms;
+  width: 100%;
+  box-sizing: border-box;
+  border: 0;
+  font-size: 13px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.DeleteRequestApproveButton:hover{
+  outline: 0;
+  background: #329a1d;
+  box-shadow: 0 0 0 2px rgba(0,0,0,.2), 0 3px 8px 0 rgba(0,0,0,.15);
+}

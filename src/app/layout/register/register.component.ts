@@ -24,11 +24,13 @@ export class RegisterComponent {
     email: '',
     password: '',
     Employeedepartment: '',
-    EmployeeDOB: Date
-
+    EmployeeDOB: Date,
+    EmployeeRole:''
   }
   EmployeedepartmentList: string[] = ['IT', 'Sales', 'Human Resources', 'Finance'];
 
+  EmployeeRoleList: string[] =['Admin','L1'];
+  
   successMessage: string = '';
   errorMessage: string = '';
   // EmployeeService: any;

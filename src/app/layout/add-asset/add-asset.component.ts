@@ -28,6 +28,7 @@ export class AddAssetComponent {
     Location:'',
     Status:'',
     EmployeeId:0,
+    DeleteStatus:'',
     Action:''
   }
    
@@ -40,6 +41,7 @@ export class AddAssetComponent {
     Location:'',
     Status:'',
     EmployeeId:0,
+    DeleteStatus:'',
     Action:''
   }
 
@@ -84,6 +86,7 @@ onSubmit(){
    
     console.log(this.sessionData); 
     this.asset.EmployeeId = this.sessionData.Id;
+    this.asset.DeleteStatus='Approve';
     this.assetService.addAsset(this.asset).subscribe(
       response=>{
               console.log("Added Successfully",response.data);  

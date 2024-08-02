@@ -26,15 +26,24 @@ export class AssetcardComponent {
   AllAssetCount: number = 0;
   InActiveAssetCount: number = 0;
   ActiveAssetCount: number = 0;
+  DeleteRequest:number=0;
   DeleteCount: number = 0;
 
   sessionData: any
+  UsersessionData:any;
+
+  userRole:string='';
   ngOnInit() {
 
     // count for all asset 
 
     if (typeof localStorage !== 'undefined') {
       this.sessionData = localStorage.getItem('session');
+      this.UsersessionData = this.sessionService.getSession();
+
+      this.userRole=this.UsersessionData.EmployeeRole;
+      console.log("User Role AssetCard " +this.userRole);
+
     } else {
 
       console.warn('localStorage is not available.');
@@ -47,6 +56,9 @@ export class AssetcardComponent {
         this.ActiveAssetCount=response.data[1][0]["CountAllActive"];
         this.InActiveAssetCount=response.data[2][0]["CountAllInActive"];
         this.DeleteCount=response.data[3][0]["CountDelete"];
+        this.DeleteRequest=response.data[4][0]["CountDeleteRequest"];
+
+        
         console.log('Get All Asset count  ! ', response.data);
         console.log('AllAssetCount : '+response.data[0][0]["CountAll"]+' ActiveAssetCount : '+this.ActiveAssetCount+" InActiveAssetCount : "+this.InActiveAssetCount+'CountDelete '+this.DeleteCount)
 
@@ -61,7 +73,7 @@ export class AssetcardComponent {
 
 
   getSpecificAsset(Actions: string) {
-    debugger
+   //    debugger
     console.log("click on the card :: ! ", Actions);
     this.router.navigate(['assetlist/:Action'], { queryParams: { Action: Actions ,EmployeeId:-1} });
   }

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { RouterLink, RouterOutlet ,Router} from '@angular/router';
+import { RouterLink, RouterOutlet, Router } from '@angular/router';
 import { AddAssetComponent } from './layout/add-asset/add-asset.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AssetListComponent } from './layout/asset-list/asset-list.component';
@@ -12,34 +12,49 @@ import { AssetcardComponent } from './layout/assetcard/assetcard.component';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet,AddAssetComponent,AssetListComponent,UpdateAssetComponent,HttpClientModule,RouterLink,HeaderComponent,CommonModule,AssetcardComponent],
+  imports: [RouterOutlet, AddAssetComponent, AssetListComponent, UpdateAssetComponent, HttpClientModule, RouterLink, HeaderComponent, CommonModule, AssetcardComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
 export class AppComponent {
   title = 'AssetManagement';
 
-  constructor(private router:Router,private sessionservice:SessionService){}
+  constructor(private router: Router, private sessionservice: SessionService) { }
 
-  
-  ngOnInit(){
+
+  ngOnInit() {
+
+
+    // localStorage.setItem('Usersession', JSON.stringify(''));
+    // localStorage.setItem('session', JSON.stringify(false));
     
+
+    // if (typeof localStorage !== 'undefined') {
+
+    //   console.log('User has not logIn');
+    //   localStorage.setItem('session',JSON.stringify(false));
+
+    //     }
+    // else  {
+      
+    // }
+
   }
 
   // sessionCheck(){
   //   console.log(this.sessionservice.getSession());
   // }
-  updateAsset(){
+  updateAsset() {
     console.log("hello");
-    this.router.navigate(['/update']);  
-  }
-  
-   viewAsset(){
-    console.log("hello");
-    this.router.navigate(['/assetlist']);  
+    this.router.navigate(['/update']);
   }
 
-  checkHome():boolean  {
+  viewAsset() {
+    console.log("hello");
+    this.router.navigate(['/assetlist']);
+  }
+
+  checkHome(): boolean {
     return this.router.url == '/';
   }
 }
